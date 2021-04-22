@@ -1,0 +1,16 @@
+use('practica3');
+
+db.patents_grupo7.find(
+    {
+        inventors: {
+            $elemMatch: {
+                inventor_country:'BE'
+            }
+        }
+    },
+    {
+        'patent_number': 1,
+        'patent_title': 1,
+        '_id': 0
+    }
+);

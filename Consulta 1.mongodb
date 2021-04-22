@@ -1,0 +1,18 @@
+use('practica3');
+
+db.patents_grupo7.aggregate([
+    {
+        $group: {
+            '_id' : '$patent_year',
+            'Total Patentes' : {
+                '$sum' : 1
+            }
+        }
+    },
+    {
+        $sort: {
+          'Total Patentes': -1
+        }
+    }
+
+]);
